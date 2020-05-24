@@ -18,10 +18,11 @@ bot.on('message', msg => {
         const _diff = Math.abs(now - createdAt)
         const _diffDays = Math.ceil(_diff / (1000 * 60 * 60 * 24))
         if (_diffDays > 30) {
+            const member = msg.mentions.members.first()
             const identified_role = msg.guild.roles.cache.find(r => r.name == '인증 회원')
-            msg.member.roles.add(identified_role)
+            member.roles.add(identified_role)
             const not_identified_role = msg.guild.roles.cache.find(r => r.name == '비인증 회원')
-            msg.member.roles.remove(not_identified_role)
+            member.roles.remove(not_identified_role)
             msg.reply(`인증이 정상적으로 처리되었습니다.\n가입 날짜: ${user.createdAt}`)
         }
     }
