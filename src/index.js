@@ -6,7 +6,6 @@ const bot = new Discord.Client()
 
 bot.on('message', msg => {
     if (msg.content.startsWith("!인증")) {
-        const role = msg.guild.roles.cache.find(role => role.name == "개발자")
         if (!msg.member.roles.cache.find(r => r.name == '개발자')) {
             msg.reply('❌ 이런 존재하지않는 명령어또는 권한이없어요!')
             return
