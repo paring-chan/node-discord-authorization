@@ -24,6 +24,8 @@ bot.on('message', msg => {
             const not_identified_role = msg.guild.roles.cache.find(r => r.name == '비인증 회원')
             member.roles.remove(not_identified_role)
             msg.reply(`인증이 정상적으로 처리되었습니다.\n가입 날짜: ${user.createdAt}`)
+        } else {
+            msg.reply(':x: 가입한지 한달이 넘지않은 사람이에요 !')
         }
     }
 })
